@@ -17,10 +17,11 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('posts.index');
 });
 
 Route::get('/hello', [ExampleController::class, 'sayHello']);
 Route::get('/user', [UserController::class, 'index'])->middleware('auth.login');
 
 Route::resource('posts', PostController::class);
+Route::get('/', [PostController::class, 'index']);
